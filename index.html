@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Calculadora Jatobá</title>
+</head>
+<body>
+        
+    <div class="center">
+        <div id="calculadora">
+            <header>
+                <div id="display">
+                    
+                </div>
+            </header>
+            <section class="container" id="buttons-container">
+                <div class="row">
+                    <button type="button" class="btn btn-others col-sm">%</button>
+                    <button type="button" class="btn btn-others col-sm">√</button>
+                    <button type="button" class="btn btn-others col-sm">x²</button>
+                    <button type="button" class="btn btn-others col-sm">¹/x</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-others col-sm" id="clean-display-btn">CE</button>
+                    <button type="button" class="btn btn-others col-sm" id="clean-calculation-btn">C</button>
+                    <button type="button" class="btn btn-others col-sm" id="clear-number-btn">←</button>
+                    <button type="button" class="btn btn-others col-sm" id="divisionOperator">÷</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-number col-sm" id="keySeven">7</button>
+                    <button type="button" class="btn btn-number col-sm" id="keyEight">8</button>
+                    <button type="button" class="btn btn-number col-sm" id="keyNine">9</button>
+                    <button type="button" class="btn btn-others col-sm" id="multiplicationOperator">X</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-number col-sm" id="keyFour">4</button>
+                    <button type="button" class="btn btn-number col-sm" id="keyFive">5</button>
+                    <button type="button" class="btn btn-number col-sm" id="keySix">6</button>
+                    <button type="button" class="btn btn-others col-sm" id="subtractionOperator">-</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-number col-sm" id="keyOne">1</button>
+                    <button type="button" class="btn btn-number col-sm" id="keyTwo">2</button>
+                    <button type="button" class="btn btn-number col-sm" id="keyThree">3</button>
+                    <button type="button" class="btn btn-others col-sm" id="additionOperator">+</button>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-others col-sm" id="invert-sign-btn">±</button>
+                    <button type="button" class="btn btn-number col-sm" id="keyZero">0</button>
+                    <button type="button" class="btn btn-others col-sm" id="decimal-btn">,</button>
+                    <button type="button" class="btn btn-others col-sm" id="equal-btn">=</button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>
