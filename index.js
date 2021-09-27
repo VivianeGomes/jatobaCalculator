@@ -14,7 +14,7 @@ const pendingOperation = () => operator !== undefined;
 //funcao que realiza as operacoes basicas
 const calculate = () => {
     if (pendingOperation()) {
-        const currentNumber = parseFloat(display.textContent);
+        const currentNumber = parseFloat(display.textContent.replace(",", "."));
         newNumber = true;
         if (operator == "+") {
             updateDisplay(previousNumber + currentNumber);
@@ -31,10 +31,10 @@ const calculate = () => {
 //funcao que atualiza a tela com os novos numeros clicados 
 const updateDisplay = (textKey) => {
     if(newNumber){
-        display.textContent = textKey;
+        display.textContent = textKey.toLocaleString("BR");
         newNumber = false;
     }else{
-        display.textContent += textKey;
+        display.textContent += textKey.toLocaleString("BR");
     }
     
 }
@@ -51,7 +51,7 @@ const selectOperator = (eventBtn) => {
         calculate();
         newNumber = true;
         operator = eventBtn.target.textContent;
-        previousNumber = parseFloat(display.textContent);
+        previousNumber = parseFloat(display.textContent.replace(",", "."));
         console.log(operator);
     }
     
@@ -67,3 +67,41 @@ const activeEqual = () => {
     operator = undefined;
 }
 document.getElementById("equal-btn").addEventListener("click", activeEqual);
+
+//apagar numeros do display
+const cleanDisplay = () => display.textContent = "";
+document.getElementById("clean-display-btn").addEventListener('click', cleanDisplay);
+
+//apagar calculo (que esta armazenado)
+const cleanCalculation = () => {
+    cleanDisplay();
+    operator = undefined;
+    newNumber = true;
+    previousNumber = undefined;
+}
+document.getElementById("clean-calculation-btn").addEventListener("click", cleanCalculation);
+
+//backspace
+const deletePreviousNumber = () => display.textContent = display.textContent.slice(0, -1);
+document.getElementById("clear-number-btn").addEventListener("click", deletePreviousNumber);
+
+//funcao de inverter o sinal
+const invertSign = () => {
+    newNumber = true;
+    updateDisplay(display.textContent * - 1);
+}
+document.getElementById("invert-sign-btn").addEventListener("click", invertSign);
+
+//transformando numeros em decimais
+const exixstDecimal = () => display.textContent.indexOf(",") !== -1;
+const existValue = () => display.textContent.length > 0;
+const transformToDecimal = () => {
+    if (!exixstDecimal()) {
+        if (existValue()) {
+            updateDisplay(",");
+        }else {
+            updateDisplay("0,");
+        }
+    }
+}
+document.getElementById("decimal-btn").addEventListener("click", transformToDecimal);
